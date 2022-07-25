@@ -1,0 +1,348 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* "*" озночает что мы обращаемся ко всем тегам на странице */
+
+*,
+*::before,
+*::after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* префикс moz для браузера Мозилла, префикс webkit для Хром, Safari и Opera  */
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+
+[class*="__container"] {
+	max-width: 396px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+// FONTS
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+body {
+	font-family: Roboto;
+}
+
+.header {
+
+	background: #333333;
+	border-bottom: 1px solid #027C5F;
+	position: relative;
+	z-index: 500;
+	transition: 0.2s;
+
+	&._active {
+		background: #00AC83;
+		border: none;
+	}
+
+	// .header__container
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px 15px;
+	}
+
+	// .header__logo
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__user-name {
+		color: #383838;
+		font-weight: 400;
+		font-size: 14px;
+		text-transform: uppercase;
+		display: none;
+
+		&._active {
+			display: block;
+		}
+	}
+
+	// .header__burger
+
+	&__burger {
+		width: 74px;
+		height: 36px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		background: none;
+
+		transition: 0.3s;
+
+
+
+		span {
+			width: 100%;
+			height: 2px;
+			background: #00AC83;
+		}
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: #00AC83;
+			transition: 0.2s;
+
+		}
+
+		&:after {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: #00AC83;
+			transition: 0.2s;
+
+		}
+
+		&._active {
+			span {
+				display: none;
+			}
+
+			&:before {
+				transform: rotate(45deg);
+				position: relative;
+				top: 15px;
+				background: #383838;
+
+			}
+
+			&:after {
+				transform: rotate(-45deg);
+				position: relative;
+				top: -18px;
+				background: #383838;
+				;
+			}
+		}
+	}
+
+
+}
+
+.menu {
+
+	position: absolute;
+	top: 0;
+	left: -100%;
+	background: #00AC83;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 63px;
+	padding-left: 66px;
+
+	padding-top: 177px;
+	transition: 0.3s;
+
+	&._active {
+		left: 0;
+	}
+
+
+
+
+
+
+	// .menu__item
+
+	&__item {}
+
+	&__title {
+		font-size: 20px;
+		font-weight: 400;
+		text-transform: uppercase;
+		position: relative;
+		color: #383838;
+
+		margin-bottom: 15px;
+
+		&._active {
+			&:after {
+				transform: rotate(180deg);
+			}
+		}
+
+
+
+		&:after {
+			content: '';
+			width: 17px;
+			height: 10px;
+			background-image: url(../img/more-icon.svg);
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 5px;
+			transform: rotate(0deg);
+			transition: 0.2s;
+
+		}
+
+
+
+
+
+	}
+
+	&__more {
+		font-size: 16px;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: #383838;
+		line-height: 150%;
+
+
+		&:nth-child(2) {
+
+			display: none;
+			gap: 10px;
+
+			&._active {
+				display: flex;
+			}
+		}
+
+		&._active {
+			display: block;
+		}
+	}
+}
+
+
+.why {
+
+	background: #333333;
+	height: 100vh;
+
+	// .why__container
+
+	&__container {
+		padding: 66px 15px 0px 15px;
+	}
+
+	// .why__title
+
+	&__title {
+		font-size: 64px;
+		font-weight: 100;
+		color: #00AC83;
+		margin-bottom: 25px;
+	}
+
+	.block {
+
+		background: #00AC83;
+		padding: 10px;
+
+		// .block__text
+
+		&__text {
+			font-size: 16px;
+			line-height: 32px;
+			display: none;
+
+			&._active {
+				display: block;
+			}
+		}
+
+		// .block__button
+
+		&__button {
+			padding: 5px 15px;
+			border-radius: 3px;
+			background-color: #333333;
+			color: #02c094;
+			font-size: 16px;
+			font-weight: 100;
+			text-transform: uppercase;
+		}
+	}
+
+}
